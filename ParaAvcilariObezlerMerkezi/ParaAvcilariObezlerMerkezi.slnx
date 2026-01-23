@@ -1,0 +1,11 @@
+<Solution>
+  <Project Path="DatabaseAccess/DatabaseAccess.csproj" Id="7e9f0cf8-ebd4-445c-b241-daf522d1b08d">
+    <BuildType Project="Debug" />
+  </Project>
+  <Project Path="ParaAvcilariObezlerMerkezi/ParaAvcilariObezlerMerkezi.csproj" Id="3c64650b-15e5-49ce-bb14-16ee89c5ee6e">
+    <BuildType Project="Debug" />
+  </Project>
+  <Project Path="TestArea/TestArea.csproj" Id="041485b1-9611-44d2-804d-aa29f64324ba">
+    <BuildType Project="Debug" />
+  </Project>
+</Solution>
