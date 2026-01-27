@@ -12,11 +12,11 @@ namespace TestArea
     {
         static void Main(string[] args)
         {
-            string password = "3283esvakturpremiumüyeliksatınaldım.AliSelim Çok İyi Babaaaaaa. Orgeneral 12312371246123952639567239526452645924892342346812346128461";
+            string password = "1234";
             DatabaseAccess.Database database = new Database();
             string haslanmis = database.CreatePWHash(password);
 
-            using (StreamWriter writer = new StreamWriter(@"C:\Users\misaki\Documents\ornekhash.txt"))
+            using (StreamWriter writer = new StreamWriter(@"C:\Users\Misaki\Documents\ornekhash.txt"))
             {
                 writer.WriteLine(haslanmis);
             }

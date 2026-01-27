@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|c:\\users\\misaki\\source\\repos\\misakihealthcenter\\paraavcilariobezlermerkezi\\paraavcilariobezlermerkezi\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|solutionrelative:paraavcilariobezlermerkezi\\dashboard.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\paraavcilariobezlermerkezi\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|solutionrelative:paraavcilariobezlermerkezi\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E9F0CF8-EBD4-445C-B241-DAF522D1B08D}|DatabaseAccess\\DatabaseAccess.csproj|C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\databaseaccess\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E9F0CF8-EBD4-445C-B241-DAF522D1B08D}|DatabaseAccess\\DatabaseAccess.csproj|solutionrelative:databaseaccess\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E9F0CF8-EBD4-445C-B241-DAF522D1B08D}|DatabaseAccess\\DatabaseAccess.csproj|C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\databaseaccess\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E9F0CF8-EBD4-445C-B241-DAF522D1B08D}|DatabaseAccess\\DatabaseAccess.csproj|solutionrelative:databaseaccess\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E9F0CF8-EBD4-445C-B241-DAF522D1B08D}|DatabaseAccess\\DatabaseAccess.csproj|C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\databaseaccess\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E9F0CF8-EBD4-445C-B241-DAF522D1B08D}|DatabaseAccess\\DatabaseAccess.csproj|solutionrelative:databaseaccess\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1257,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dashboard.aspx",
+              "DocumentMoniker": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi\\Dashboard.aspx",
+              "RelativeDocumentMoniker": "ParaAvcilariObezlerMerkezi\\Dashboard.aspx",
+              "ToolTip": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi\\Dashboard.aspx",
+              "RelativeToolTip": "ParaAvcilariObezlerMerkezi\\Dashboard.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-01-26T15:49:56.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\DatabaseAccess\\Appointment.cs",
+              "RelativeDocumentMoniker": "DatabaseAccess\\Appointment.cs",
+              "ToolTip": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\DatabaseAccess\\Appointment.cs",
+              "RelativeToolTip": "DatabaseAccess\\Appointment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T15:44:19.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Patient.cs",
+              "DocumentMoniker": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\DatabaseAccess\\Patient.cs",
+              "RelativeDocumentMoniker": "DatabaseAccess\\Patient.cs",
+              "ToolTip": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\DatabaseAccess\\Patient.cs",
+              "RelativeToolTip": "DatabaseAccess\\Patient.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-25T11:54:24.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dashboard.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi\\Dashboard.aspx.cs",
+              "RelativeDocumentMoniker": "ParaAvcilariObezlerMerkezi\\Dashboard.aspx.cs",
+              "ToolTip": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi\\Dashboard.aspx.cs",
+              "RelativeToolTip": "ParaAvcilariObezlerMerkezi\\Dashboard.aspx.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwDYAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-25T10:35:38.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Database.cs",
+              "DocumentMoniker": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\DatabaseAccess\\Database.cs",
+              "RelativeDocumentMoniker": "DatabaseAccess\\Database.cs",
+              "ToolTip": "C:\\Users\\Misaki\\source\\repos\\MisakiHealthCenter\\ParaAvcilariObezlerMerkezi\\DatabaseAccess\\Database.cs",
+              "RelativeToolTip": "DatabaseAccess\\Database.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAiwKMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-24T10:01:06.441Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

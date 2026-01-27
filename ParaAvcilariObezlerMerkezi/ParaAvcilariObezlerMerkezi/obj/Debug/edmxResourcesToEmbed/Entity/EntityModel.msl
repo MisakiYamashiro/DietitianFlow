@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MisakiHealthCenterModelStoreContainer" CdmEntityContainer="MisakiHealthCenterEntities1">
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="MisakiHealthCenterModel.Appointments">
+        <MappingFragment StoreEntitySet="Appointments">
+          <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
+          <ScalarProperty Name="DietitianId" ColumnName="DietitianId" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BodyMeasurements">
+      <EntityTypeMapping TypeName="MisakiHealthCenterModel.BodyMeasurements">
+        <MappingFragment StoreEntitySet="BodyMeasurements">
+          <ScalarProperty Name="MeasurementId" ColumnName="MeasurementId" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="DietitianID" ColumnName="DietitianID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="BodyFatPercentage" ColumnName="BodyFatPercentage" />
+          <ScalarProperty Name="MuscleMassKg" ColumnName="MuscleMassKg" />
+          <ScalarProperty Name="WaterPercentage" ColumnName="WaterPercentage" />
+          <ScalarProperty Name="VisceralFatLevel" ColumnName="VisceralFatLevel" />
+          <ScalarProperty Name="WaistCircumference" ColumnName="WaistCircumference" />
+          <ScalarProperty Name="HipCircumference" ColumnName="HipCircumference" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dietitians">
+      <EntityTypeMapping TypeName="MisakiHealthCenterModel.Dietitians">
+        <MappingFragment StoreEntitySet="Dietitians">
+          <ScalarProperty Name="DietitianID" ColumnName="DietitianID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="SessionFee" ColumnName="SessionFee" />
+          <ScalarProperty Name="IBANumber" ColumnName="IBANumber" />
+          <ScalarProperty Name="PhotoBinaryFormat" ColumnName="PhotoBinaryFormat" />
+          <ScalarProperty Name="JsonBinaryFormat" ColumnName="JsonBinaryFormat" />
+          <ScalarProperty Name="GovernmentIDNumber" ColumnName="GovernmentIDNumber" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Degree" ColumnName="Degree" />
+          <ScalarProperty Name="GraduatedUniversityName" ColumnName="GraduatedUniversityName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Password_Hash" ColumnName="Password_Hash" />
+          <ScalarProperty Name="ActiveEmployee" ColumnName="ActiveEmployee" />
+          <ScalarProperty Name="LastLoginDatetime" ColumnName="LastLoginDatetime" />
+          <ScalarProperty Name="ShiftStartTime" ColumnName="ShiftStartTime" />
+          <ScalarProperty Name="ShiftEndTime" ColumnName="ShiftEndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="MisakiHealthCenterModel.Patients">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="DietitianID" ColumnName="DietitianID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="GovernmentIDNumber" ColumnName="GovernmentIDNumber" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="StartingWeight" ColumnName="StartingWeight" />
+          <ScalarProperty Name="TargetWeight" ColumnName="TargetWeight" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="TargetDescription" ColumnName="TargetDescription" />
+          <ScalarProperty Name="Allergies" ColumnName="Allergies" />
+          <ScalarProperty Name="Diseases" ColumnName="Diseases" />
+          <ScalarProperty Name="UsingMeds" ColumnName="UsingMeds" />
+          <ScalarProperty Name="OperationHistory" ColumnName="OperationHistory" />
+          <ScalarProperty Name="IsSmoking" ColumnName="IsSmoking" />
+          <ScalarProperty Name="PhysicalActivity" ColumnName="PhysicalActivity" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="SystemSignDate" ColumnName="SystemSignDate" />
+          <ScalarProperty Name="Case" ColumnName="Case" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="LastSessionDate" ColumnName="LastSessionDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

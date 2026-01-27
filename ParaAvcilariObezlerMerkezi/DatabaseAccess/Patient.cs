@@ -26,6 +26,7 @@ namespace DatabaseAccess
         public string UsingMeds { get; set; }
         public string OperationHistory { get; set; }
         public bool IsSmoking { get; set; } // 'Smoking?' sütunu için
+        public string IsSmokingStr { get; set; }
         public string PhysicalActivity { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
@@ -34,5 +35,7 @@ namespace DatabaseAccess
         public string Case { get; set; }
         public string Notes { get; set; }
         public DateTime LastSessionDate { get; set; }
+
+        public bool Active { get; set; }
     }
 }

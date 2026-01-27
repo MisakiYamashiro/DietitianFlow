@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <label>E-Posta</label>
-                    <asp:TextBox ID="tb_email" runat="server" CssClass="form-control" Placeholder="ornek@email.com" TextMode="Email"></asp:TextBox>
+                    <asp:TextBox ID="tb_email" runat="server" CssClass="form-control" Placeholder="ornek@email.com" Text="burcu.ozdemir@diet.com" TextMode="Email"></asp:TextBox>
                 </div>
 
                 <div class="form-group">

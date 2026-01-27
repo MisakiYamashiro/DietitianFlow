@@ -1,54 +1,68 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MisakiHealthCenter.master.cs" Inherits="ParaAvcilariObezlerMerkezi.MisakiHealthCenter" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <title></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="MasterAdminCSS.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <div class="top-side"></div>
+        <div class="dashboard-container">
             <div class="left-side">
                 <div class="left-side-logo">
                     <img src="Image/DietitianFlowWhite.png" />
                 </div>
                 <ul class="unordered-list-top">
-                    <li style="background-color:#575757 !important;">
+                    <li style="background-color: #575757 !important;">
                         <asp:LinkButton ID="lbtn_Dashboard" runat="server" Text="Dashboard" CssClass="lbtn-li-dashboard" ForeColor="white"></asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="lbtn_Appointments" runat="server" Text="Appointments" CssClass="lbtn-li-appointments"></asp:LinkButton></li>
+                        <asp:LinkButton ID="lbtn_Appointments" runat="server" Text="Appointments" CssClass="lbtn-li-appointments"></asp:LinkButton>
+                    </li>
                     <li>
-                        <asp:LinkButton ID="lbtn_Patients" runat="server" Text="Patients" CssClass="lbtn-li-Patients"></asp:LinkButton></li>
+                        <asp:LinkButton ID="lbtn_Patients" runat="server" Text="Patients" CssClass="lbtn-li-Patients"></asp:LinkButton>
+                    </li>
                 </ul>
-                <br />
-                <hr />
+
                 <br />
                 <h4 style="color: white; margin-left: 20px; font-size: 15pt;">Settings</h4>
 
                 <ul class="unordered-list-top">
                     <li>
-                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Dietitian Controls" CssClass="lbtn-li-settings-dietitian-controls"></asp:LinkButton></li>
+                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Dietitian Controls" CssClass="lbtn-li-settings-dietitian-controls"></asp:LinkButton>
+                    </li>
                     <li>
-                        <asp:LinkButton ID="LinkButton2" runat="server" Text="Appointment Controls" CssClass="lbtn-li-settings-appointment-controls"></asp:LinkButton></li>
+                        <asp:LinkButton ID="LinkButton2" runat="server" Text="Appointment Controls" CssClass="lbtn-li-settings-appointment-controls"></asp:LinkButton>
+                    </li>
                     <li>
-                        <asp:LinkButton ID="LinkButton3" runat="server" Text="Patient Controls" CssClass="lbtn-li-settings-patient-controls"></asp:LinkButton></li>
+                        <asp:LinkButton ID="LinkButton3" runat="server" Text="Patient Controls" CssClass="lbtn-li-settings-patient-controls"></asp:LinkButton>
+                    </li>
                 </ul>
-                <br />
-                <hr />
-                <br />
             </div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+
+            <div class="right-side">
+                <div class="top-side">
+                    <div class="left">
+                        <asp:Label ID="lbl_dietitianRole" runat="server" Text="ExampleRole" CssClass="dietitianRole"></asp:Label>
+                    </div>
+                    <div class="right">
+                        <asp:Label ID="lbl_DietitianName" runat="server" Text="ExampleName"  CssClass="dietitianName"></asp:Label>
+                        <asp:Image ID="img_dietitianIMG" runat="server"  CssClass="dietitianImg"/>
+                    </div>
+                </div>
+
+                <div class="content-area">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>x 
     </form>
 </body>
 </html>
