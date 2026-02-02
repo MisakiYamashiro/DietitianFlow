@@ -39,7 +39,9 @@ namespace ParaAvcilariObezlerMerkezi
                     && x.StartTime <= DateTime.Now.AddDays(7)); yaklasanRandevu = appointments.Count(x => x.Status && x.StartTime > DateTime.Now && x.DietitianId == activeDietitian.DietitianID);
                 }
                 aktifHastalar = patients.Count(x => x.Active == true && x.DietitianID == activeDietitian.DietitianID);
-                lbl
+                lbl_aktifhastalar.Text = aktifHastalar.ToString();
+                lbl_bekleyenRandevuSayi.Text = bekleyenRandevu.ToString();
+                lbl_yaklasanrandevular.Text = yaklasanRandevu.ToString();
                 LoadChart();
             }
         }

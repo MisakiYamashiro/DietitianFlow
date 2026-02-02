@@ -159,7 +159,7 @@ namespace DatabaseAccess
             using (Database db = new Database())
             {
                 cmd.Parameters.Clear();
-                cmd.CommandText = "select AppointmentId,DietitianId,PatientId,StartTime,EndTime,Status,Type,Notes, IsActive from Appointments";
+                cmd.CommandText = "select AppointmentId,DietitianId,PatientId,StartTime,EndTime,Status,Type,Notes from Appointments";
                 if (con.State == System.Data.ConnectionState.Closed)
                 {
                     con.Open();
@@ -178,7 +178,6 @@ namespace DatabaseAccess
                     appointment.Status = reader.GetBoolean(5);
                     appointment.Type = reader.GetString(6);
                     appointment.Notes = reader.GetString(7);
-                    appointment.IsActive = reader.GetBoolean(8);
                     appointments.Add(appointment);
                 }
                 reader.Close();

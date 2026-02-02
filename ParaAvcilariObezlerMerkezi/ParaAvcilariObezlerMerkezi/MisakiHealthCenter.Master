@@ -62,7 +62,7 @@
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
-        </div>x 
+        </div>
     </form>
 </body>
 </html>

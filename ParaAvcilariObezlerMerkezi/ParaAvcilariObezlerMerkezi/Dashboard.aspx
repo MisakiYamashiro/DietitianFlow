@@ -53,7 +53,7 @@
         if (tarihler && tarihler.length > 0) {
             var ctx = document.getElementById('randevuChart').getContext('2d');
             new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: {
                     labels: tarihler,
                     datasets: [{
