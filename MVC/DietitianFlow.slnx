@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ActiveXDataObjects/ActiveXDataObjects.csproj" />
+  <Project Path="DietitianFlow/DietitianFlow.csproj" />
+</Solution>
