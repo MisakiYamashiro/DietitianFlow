@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\misaki\\source\\repos\\ParaAvcilariObezlerMerkezi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|c:\\users\\misaki\\source\\repos\\paraavcilariobezlermerkezi\\paraavcilariobezlermerkezi\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|solutionrelative:paraavcilariobezlermerkezi\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|c:\\users\\misaki\\source\\repos\\paraavcilariobezlermerkezi\\paraavcilariobezlermerkezi\\misakihealthcenter.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
       "RelativeMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|solutionrelative:paraavcilariobezlermerkezi\\misakihealthcenter.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|c:\\users\\misaki\\source\\repos\\paraavcilariobezlermerkezi\\paraavcilariobezlermerkezi\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|solutionrelative:paraavcilariobezlermerkezi\\dashboard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C64650B-15E5-49CE-BB14-16EE89C5EE6E}|ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi.csproj|c:\\users\\misaki\\source\\repos\\paraavcilariobezlermerkezi\\paraavcilariobezlermerkezi\\masteradmincss.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 310,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +42,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Dashboard.aspx",
               "DocumentMoniker": "C:\\Users\\misaki\\source\\repos\\ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi\\Dashboard.aspx",
               "RelativeDocumentMoniker": "ParaAvcilariObezlerMerkezi\\Dashboard.aspx",
@@ -55,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MisakiHealthCenter.Master",
               "DocumentMoniker": "C:\\Users\\misaki\\source\\repos\\ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi\\MisakiHealthCenter.Master",
               "RelativeDocumentMoniker": "ParaAvcilariObezlerMerkezi\\MisakiHealthCenter.Master",
@@ -78,8 +78,8 @@
               "Title": "MasterAdminCSS.css",
               "DocumentMoniker": "C:\\Users\\misaki\\source\\repos\\ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi\\MasterAdminCSS.css",
               "RelativeDocumentMoniker": "ParaAvcilariObezlerMerkezi\\MasterAdminCSS.css",
-              "ToolTip": "C:\\Users\\misaki\\source\\repos\\ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi\\MasterAdminCSS.css*",
-              "RelativeToolTip": "ParaAvcilariObezlerMerkezi\\MasterAdminCSS.css*",
+              "ToolTip": "C:\\Users\\misaki\\source\\repos\\ParaAvcilariObezlerMerkezi\\ParaAvcilariObezlerMerkezi\\MasterAdminCSS.css",
+              "RelativeToolTip": "ParaAvcilariObezlerMerkezi\\MasterAdminCSS.css",
               "ViewState": "AgIAABsAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2026-01-22T19:45:20.907Z",
