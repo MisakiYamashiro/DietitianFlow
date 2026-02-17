@@ -9,7 +9,6 @@ body {
     background-color: #f4f4f4;
 }
 
-/* --- Layout Genel Yapı (Mevcut yapınızın bozulmaması için) --- */
 .dashboard-container {
     display: flex;
     width: 100%;
@@ -92,22 +91,19 @@ ul {
             color: white;
         }
 
-/* --- YENİ EKLENEN/DÜZENLENEN KISIMLAR --- */
 
-/* 1. Ana Satır: Kartlar ve Grafiği Yan Yana Getirir */
 .dashboard-row {
     display: flex;
-    flex-wrap: wrap; /* Ekran küçülürse alt alta geçsin */
-    align-items: flex-start; /* Yukarı hizalı */
-    gap: 20px; /* Sütunlar arası boşluk */
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px; 
     width: 100%;
 }
 
-/* 2. Sol Sütun (Kartların olduğu yer) */
 .stats-column {
     display: flex;
-    flex-direction: column; /* Kartları alt alta diz */
-    gap: 20px; /* Kartlar arası dikey boşluk */
+    flex-direction: column; 
+    gap: 20px;
 }
 
 /* 3. Kart Tasarımı */
@@ -124,7 +120,7 @@ ul {
 }
 
     .card:hover {
-        transform: translateY(-3px); /* Hover efekti */
+        transform: translateY(-3px);
     }
 
     .card img {

@@ -15,20 +15,22 @@ namespace ParaAvcilariObezlerMerkezi
         {
             if (!IsPostBack)
             {
-                if (Session["Admin"] == null)
-                {
-                    Response.Redirect("Login.aspx");
-                }
-                else
-                {
-                    Dietitian dietitian = (Dietitian)Session["Admin"];
-                    lbl_DietitianName.Text = "Servus! " + dietitian.Name;
-                    lbl_dietitianRole.Text = dietitian.Degree;
-                    if (dietitian.PhotoBinaryFormat == null)
-                    {
-                        img_dietitianIMG.ImageUrl = "Image/defaultuser.png";
-                    }
-                }
+                //if (Session["Admin"] == null)
+                //{
+                //    Response.Redirect("Login.aspx");
+                //}
+                //else
+                //{
+                //    //Dietitian dietitian = (Dietitian)Session["Admin"];
+                //    //lbl_DietitianName.Text = "Servus! " + dietitian.Name;
+                //    //lbl_dietitianRole.Text = dietitian.Degree;
+
+                //}
+                lbl_DietitianName.Text = "Servus! Efe";
+                lbl_dietitianRole.Text = "Uzman Diyetisyen";
+
+                img_dietitianIMG.ImageUrl = "Image/defaultuser.png";
+
             }
         }
     }

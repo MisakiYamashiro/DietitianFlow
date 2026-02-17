@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DietitianFlowModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Appointments">
+          <Key>
+            <PropertyRef Name="AppointmentId" />
+          </Key>
+          <Property Name="AppointmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DietitianId" Type="int" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="BodyMeasurements">
+          <Key>
+            <PropertyRef Name="BodyMeasurementId" />
+          </Key>
+          <Property Name="BodyMeasurementId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="DietitianID" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="BodyFatPercentage" Type="float" />
+          <Property Name="MuscleMassKg" Type="float" />
+          <Property Name="WaterPercentage" Type="float" />
+          <Property Name="VisceralFatLevel" Type="int" />
+          <Property Name="WaistCircumference" Type="float" />
+          <Property Name="HipCircumference" Type="float" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Dietitians">
+          <Key>
+            <PropertyRef Name="DietitianID" />
+          </Key>
+          <Property Name="DietitianID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="100" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SessionFee" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IBANumber" Type="varchar" MaxLength="34" />
+          <Property Name="PhotoBinaryFormat" Type="varbinary(max)" />
+          <Property Name="JsonBinaryFormat" Type="varbinary(max)" />
+          <Property Name="GovernmentIDNumber" Type="varchar" MaxLength="11" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="20" />
+          <Property Name="Degree" Type="nvarchar" MaxLength="100" />
+          <Property Name="GraduatedUniversityName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="District" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password_Hash" Type="nvarchar" MaxLength="500" />
+          <Property Name="ActiveEmployee" Type="bit" />
+          <Property Name="LastLoginDatetime" Type="datetime" />
+          <Property Name="ShiftStartTime" Type="time" Precision="7" />
+          <Property Name="ShiftEndTime" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DietitianID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="GovernmentIDNumber" Type="varchar" MaxLength="11" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="20" />
+          <Property Name="Height" Type="float" />
+          <Property Name="StartingWeight" Type="float" />
+          <Property Name="TargetWeight" Type="float" />
+          <Property Name="Weight" Type="float" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="10" />
+          <Property Name="TargetDescription" Type="nvarchar(max)" />
+          <Property Name="Allergies" Type="nvarchar(max)" />
+          <Property Name="Diseases" Type="nvarchar(max)" />
+          <Property Name="UsingMeds" Type="nvarchar(max)" />
+          <Property Name="OperationHistory" Type="nvarchar(max)" />
+          <Property Name="IsSmoking" Type="bit" />
+          <Property Name="PhysicalActivity" Type="nvarchar" MaxLength="200" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="SystemSignDate" Type="datetime" />
+          <Property Name="Case" Type="nvarchar(max)" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="LastSessionDate" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <Association Name="FK_dbo_Appointments_dbo_Dietitians_DietitianId">
+          <End Role="Dietitians" Type="Self.Dietitians" Multiplicity="0..1" />
+          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dietitians">
+              <PropertyRef Name="DietitianID" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="DietitianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Appointments_dbo_Patients_PatientId">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
+          <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_BodyMeasurements_dbo_Dietitians_DietitianID">
+          <End Role="Dietitians" Type="Self.Dietitians" Multiplicity="0..1" />
+          <End Role="BodyMeasurements" Type="Self.BodyMeasurements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dietitians">
+              <PropertyRef Name="DietitianID" />
+            </Principal>
+            <Dependent Role="BodyMeasurements">
+              <PropertyRef Name="DietitianID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_BodyMeasurements_dbo_Patients_PatientId">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
+          <End Role="BodyMeasurements" Type="Self.BodyMeasurements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="BodyMeasurements">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Patients_dbo_Dietitians_DietitianID">
+          <End Role="Dietitians" Type="Self.Dietitians" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dietitians">
+              <PropertyRef Name="DietitianID" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="DietitianID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DietitianFlowModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BodyMeasurements" EntityType="Self.BodyMeasurements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dietitians" EntityType="Self.Dietitians" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Appointments_dbo_Dietitians_DietitianId" Association="Self.FK_dbo_Appointments_dbo_Dietitians_DietitianId">
+            <End Role="Dietitians" EntitySet="Dietitians" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Appointments_dbo_Patients_PatientId" Association="Self.FK_dbo_Appointments_dbo_Patients_PatientId">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_BodyMeasurements_dbo_Dietitians_DietitianID" Association="Self.FK_dbo_BodyMeasurements_dbo_Dietitians_DietitianID">
+            <End Role="Dietitians" EntitySet="Dietitians" />
+            <End Role="BodyMeasurements" EntitySet="BodyMeasurements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_BodyMeasurements_dbo_Patients_PatientId" Association="Self.FK_dbo_BodyMeasurements_dbo_Patients_PatientId">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="BodyMeasurements" EntitySet="BodyMeasurements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Patients_dbo_Dietitians_DietitianID" Association="Self.FK_dbo_Patients_dbo_Dietitians_DietitianID">
+            <End Role="Dietitians" EntitySet="Dietitians" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DietitianFlowModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentId" />
+          </Key>
+          <Property Name="AppointmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DietitianId" Type="Int32" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dietitian" Relationship="Self.FK_dbo_Appointments_dbo_Dietitians_DietitianId" FromRole="Appointments" ToRole="Dietitians" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_dbo_Appointments_dbo_Patients_PatientId" FromRole="Appointments" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="BodyMeasurement">
+          <Key>
+            <PropertyRef Name="BodyMeasurementId" />
+          </Key>
+          <Property Name="BodyMeasurementId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="DietitianID" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="BodyFatPercentage" Type="Double" />
+          <Property Name="MuscleMassKg" Type="Double" />
+          <Property Name="WaterPercentage" Type="Double" />
+          <Property Name="VisceralFatLevel" Type="Int32" />
+          <Property Name="WaistCircumference" Type="Double" />
+          <Property Name="HipCircumference" Type="Double" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dietitian" Relationship="Self.FK_dbo_BodyMeasurements_dbo_Dietitians_DietitianID" FromRole="BodyMeasurements" ToRole="Dietitians" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_dbo_BodyMeasurements_dbo_Patients_PatientId" FromRole="BodyMeasurements" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Dietitian">
+          <Key>
+            <PropertyRef Name="DietitianID" />
+          </Key>
+          <Property Name="DietitianID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SessionFee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IBANumber" Type="String" MaxLength="34" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoBinaryFormat" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="JsonBinaryFormat" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="GovernmentIDNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Degree" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GraduatedUniversityName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password_Hash" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ActiveEmployee" Type="Boolean" />
+          <Property Name="LastLoginDatetime" Type="DateTime" Precision="3" />
+          <Property Name="ShiftStartTime" Type="Time" Precision="7" />
+          <Property Name="ShiftEndTime" Type="Time" Precision="7" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_dbo_Appointments_dbo_Dietitians_DietitianId" FromRole="Dietitians" ToRole="Appointments" />
+          <NavigationProperty Name="BodyMeasurements" Relationship="Self.FK_dbo_BodyMeasurements_dbo_Dietitians_DietitianID" FromRole="Dietitians" ToRole="BodyMeasurements" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK_dbo_Patients_dbo_Dietitians_DietitianID" FromRole="Dietitians" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DietitianID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GovernmentIDNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="Sex" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Height" Type="Double" />
+          <Property Name="StartingWeight" Type="Double" />
+          <Property Name="TargetWeight" Type="Double" />
+          <Property Name="Weight" Type="Double" />
+          <Property Name="BloodGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TargetDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Allergies" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Diseases" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UsingMeds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OperationHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsSmoking" Type="Boolean" />
+          <Property Name="PhysicalActivity" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SystemSignDate" Type="DateTime" Precision="3" />
+          <Property Name="Case" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastSessionDate" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_dbo_Appointments_dbo_Patients_PatientId" FromRole="Patients" ToRole="Appointments" />
+          <NavigationProperty Name="BodyMeasurements" Relationship="Self.FK_dbo_BodyMeasurements_dbo_Patients_PatientId" FromRole="Patients" ToRole="BodyMeasurements" />
+          <NavigationProperty Name="Dietitian" Relationship="Self.FK_dbo_Patients_dbo_Dietitians_DietitianID" FromRole="Patients" ToRole="Dietitians" />
+        </EntityType>
+        <Association Name="FK_dbo_Appointments_dbo_Dietitians_DietitianId">
+          <End Role="Dietitians" Type="Self.Dietitian" Multiplicity="0..1" />
+          <End Role="Appointments" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dietitians">
+              <PropertyRef Name="DietitianID" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="DietitianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Appointments_dbo_Patients_PatientId">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Appointments" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="Appointments">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_BodyMeasurements_dbo_Dietitians_DietitianID">
+          <End Role="Dietitians" Type="Self.Dietitian" Multiplicity="0..1" />
+          <End Role="BodyMeasurements" Type="Self.BodyMeasurement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dietitians">
+              <PropertyRef Name="DietitianID" />
+            </Principal>
+            <Dependent Role="BodyMeasurements">
+              <PropertyRef Name="DietitianID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_BodyMeasurements_dbo_Patients_PatientId">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="BodyMeasurements" Type="Self.BodyMeasurement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="BodyMeasurements">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Patients_dbo_Dietitians_DietitianID">
+          <End Role="Dietitians" Type="Self.Dietitian" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dietitians">
+              <PropertyRef Name="DietitianID" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="DietitianID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DietitianFlowEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+          <EntitySet Name="BodyMeasurements" EntityType="Self.BodyMeasurement" />
+          <EntitySet Name="Dietitians" EntityType="Self.Dietitian" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <AssociationSet Name="FK_dbo_Appointments_dbo_Dietitians_DietitianId" Association="Self.FK_dbo_Appointments_dbo_Dietitians_DietitianId">
+            <End Role="Dietitians" EntitySet="Dietitians" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Appointments_dbo_Patients_PatientId" Association="Self.FK_dbo_Appointments_dbo_Patients_PatientId">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="Appointments" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_BodyMeasurements_dbo_Dietitians_DietitianID" Association="Self.FK_dbo_BodyMeasurements_dbo_Dietitians_DietitianID">
+            <End Role="Dietitians" EntitySet="Dietitians" />
+            <End Role="BodyMeasurements" EntitySet="BodyMeasurements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_BodyMeasurements_dbo_Patients_PatientId" Association="Self.FK_dbo_BodyMeasurements_dbo_Patients_PatientId">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="BodyMeasurements" EntitySet="BodyMeasurements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Patients_dbo_Dietitians_DietitianID" Association="Self.FK_dbo_Patients_dbo_Dietitians_DietitianID">
+            <End Role="Dietitians" EntitySet="Dietitians" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DietitianFlowModelStoreContainer" CdmEntityContainer="DietitianFlowEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="DietitianFlowModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="DietitianFlowModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointments">
+                <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
+                <ScalarProperty Name="DietitianId" ColumnName="DietitianId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BodyMeasurements">
+            <EntityTypeMapping TypeName="DietitianFlowModel.BodyMeasurement">
+              <MappingFragment StoreEntitySet="BodyMeasurements">
+                <ScalarProperty Name="BodyMeasurementId" ColumnName="BodyMeasurementId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="DietitianID" ColumnName="DietitianID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="BodyFatPercentage" ColumnName="BodyFatPercentage" />
+                <ScalarProperty Name="MuscleMassKg" ColumnName="MuscleMassKg" />
+                <ScalarProperty Name="WaterPercentage" ColumnName="WaterPercentage" />
+                <ScalarProperty Name="VisceralFatLevel" ColumnName="VisceralFatLevel" />
+                <ScalarProperty Name="WaistCircumference" ColumnName="WaistCircumference" />
+                <ScalarProperty Name="HipCircumference" ColumnName="HipCircumference" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dietitians">
+            <EntityTypeMapping TypeName="DietitianFlowModel.Dietitian">
+              <MappingFragment StoreEntitySet="Dietitians">
+                <ScalarProperty Name="DietitianID" ColumnName="DietitianID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="SessionFee" ColumnName="SessionFee" />
+                <ScalarProperty Name="IBANumber" ColumnName="IBANumber" />
+                <ScalarProperty Name="PhotoBinaryFormat" ColumnName="PhotoBinaryFormat" />
+                <ScalarProperty Name="JsonBinaryFormat" ColumnName="JsonBinaryFormat" />
+                <ScalarProperty Name="GovernmentIDNumber" ColumnName="GovernmentIDNumber" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="GraduatedUniversityName" ColumnName="GraduatedUniversityName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Password_Hash" ColumnName="Password_Hash" />
+                <ScalarProperty Name="ActiveEmployee" ColumnName="ActiveEmployee" />
+                <ScalarProperty Name="LastLoginDatetime" ColumnName="LastLoginDatetime" />
+                <ScalarProperty Name="ShiftStartTime" ColumnName="ShiftStartTime" />
+                <ScalarProperty Name="ShiftEndTime" ColumnName="ShiftEndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="DietitianFlowModel.Patient">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="DietitianID" ColumnName="DietitianID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="GovernmentIDNumber" ColumnName="GovernmentIDNumber" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="StartingWeight" ColumnName="StartingWeight" />
+                <ScalarProperty Name="TargetWeight" ColumnName="TargetWeight" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="TargetDescription" ColumnName="TargetDescription" />
+                <ScalarProperty Name="Allergies" ColumnName="Allergies" />
+                <ScalarProperty Name="Diseases" ColumnName="Diseases" />
+                <ScalarProperty Name="UsingMeds" ColumnName="UsingMeds" />
+                <ScalarProperty Name="OperationHistory" ColumnName="OperationHistory" />
+                <ScalarProperty Name="IsSmoking" ColumnName="IsSmoking" />
+                <ScalarProperty Name="PhysicalActivity" ColumnName="PhysicalActivity" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SystemSignDate" ColumnName="SystemSignDate" />
+                <ScalarProperty Name="Case" ColumnName="Case" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="LastSessionDate" ColumnName="LastSessionDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

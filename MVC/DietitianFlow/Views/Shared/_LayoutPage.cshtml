@@ -1,0 +1,99 @@
+﻿@using DietitianFlowManuelMethods;
+@{
+
+    var adminUser = Session["Admin"] as uc_Dietitian;
+    var normalUser = Session["Dietitian"] as uc_Dietitian;
+    uc_Dietitian user;
+    bool Admin;
+    if (adminUser == null)
+    {
+        Admin = false;
+    }
+    else
+    {
+        Admin = true;
+    }
+    if (Admin)
+    {
+        user = Session["Admin"] as uc_Dietitian;
+    }
+    else
+    {
+        user = Session["Dietitian"] as uc_Dietitian;
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Assets/CSS/Main.css" rel="stylesheet" />
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="left-side">
+            <div class="left-side-logo">
+                <img src="~/Assets/Images/DietitianFlowWhite.png" />
+            </div>
+            <ul class="unordered-list-top">
+                <li style="background-color: #575757 !important;">
+                    <a href="~/Views/Main/Index.cshtml" class="lbtn-li-dashboard" style="color:white">Dashboard</a>
+
+                </li>
+                <li>
+                    <a href="#">Appointments</a>
+                </li>
+                <li>
+                    <a href="#">Patients</a>
+                </li>
+            </ul>
+
+            <br />
+            @if (Admin)
+            {
+                <h4 style="color: white; margin-left: 20px; font-size: 15pt;">Admin Section</h4>
+
+                <ul class="unordered-list-top">
+                    <li>
+                        <a href="#">Dietitian Controls</a>
+                    </li>
+                    <li>
+                        <a href="#">Appointment Controls</a>
+                    </li>
+                    <li>
+                        <a href="#">Patient Controls</a>
+                    </li>
+                </ul>
+            }
+        </div>
+
+        <div class="right-side">
+            <div class="top-side">
+                <div class="left">
+                    <label class="dietitianRole">@user.Degree</label>
+                </div>
+                <div class="right">
+                    <label class="dietitianName">Welcome, @user.Name</label>
+                    @if (user.PhotoBinaryFormat == null)
+                    {
+                        <img src="~/Assets/Images/defaultuser.png" alt="Alternate Text" class="dietitianImg" />
+                    }
+                    else
+                    {
+                        @*XML Metodları oluşturulup admin bölümü yapıldığında burası yazılacak...*@
+                    }
+                </div>
+            </div>
+
+            <div class="content-area">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

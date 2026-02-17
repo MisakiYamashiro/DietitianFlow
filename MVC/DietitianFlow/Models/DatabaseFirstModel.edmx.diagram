@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a34955a16af84b0ca413661047f58f3e" Name="Diagram1">
+        <EntityTypeShape EntityType="DietitianFlowModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietitianFlowModel.Appointment" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietitianFlowModel.BodyMeasurement" Width="1.5" PointX="8.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietitianFlowModel.Dietitian" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DietitianFlowModel.Patient" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="DietitianFlowModel.FK_dbo_Appointments_dbo_Dietitians_DietitianId" ManuallyRouted="false" />
+        <AssociationConnector Association="DietitianFlowModel.FK_dbo_Appointments_dbo_Patients_PatientId" ManuallyRouted="false" />
+        <AssociationConnector Association="DietitianFlowModel.FK_dbo_BodyMeasurements_dbo_Dietitians_DietitianID" ManuallyRouted="false" />
+        <AssociationConnector Association="DietitianFlowModel.FK_dbo_BodyMeasurements_dbo_Patients_PatientId" ManuallyRouted="false" />
+        <AssociationConnector Association="DietitianFlowModel.FK_dbo_Patients_dbo_Dietitians_DietitianID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
