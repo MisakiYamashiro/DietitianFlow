@@ -1,0 +1,35 @@
+﻿using DietitianFlow.Models;
+using DietitianFlowManuelMethods;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace DietitianFlow.Controllers
+{
+    public class AppointmentsController : Controller
+    {
+        // GET: Appointments
+        public ActionResult Appointments()
+        {
+            var model2 = new Model();
+            if (Session["Admin"] == null && Session["Dietitian"] == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            uc_Dietitian csession;
+            if (Session["Admin"] != null)
+            {
+                csession = (uc_Dietitian)Session["Admin"];
+            }
+            else if (Session["Dietitian"] != null)
+            {
+                csession = (uc_Dietitian)Session["Dietitian"];
+            }
+            List<uc_Appointments> _Appointments = model2.Appointments.Where(x => x.DietitianID == csession.DietitianID).ToList();
+
+            return View(_Appointments);
+        }
+    }
+}

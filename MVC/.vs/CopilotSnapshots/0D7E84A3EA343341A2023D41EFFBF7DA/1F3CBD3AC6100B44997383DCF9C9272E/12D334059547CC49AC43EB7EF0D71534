@@ -1,0 +1,49 @@
+﻿@model DietitianFlow.Models.ViewTempModels.DashboardViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="dashboard-row">
+
+    <div class="stats-column">
+        <div class="card">
+            <img src="Image/CALENDAR.png" alt="Bekleyen Randevular" />
+            <div class="card-text">
+                <label>Bekleyen Randevular</label>
+                <br />
+                <asp:Label ID="lbl_bekleyenRandevuSayi" runat="server" Text="1" CssClass="count-text"></asp:Label>
+                <label class="count-text"></label>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Image/calendarstar.png" alt="Yaklaşan Randevular" />
+            <div class="card-text">
+                <label>Yaklaşan Randevular</label>
+                <br />
+                <asp:Label ID="lbl_yaklasanrandevular" runat="server" Text="1" CssClass="count-text"></asp:Label>
+                <label class="count-text"></label>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Image/patients.png" alt="Aktif Hastalar" />
+            <div class="card-text">
+                <label>Aktif Hastalar</label>
+                <br />
+                <asp:Label ID="lbl_aktifhastalar" runat="server" Text="1" CssClass="count-text"></asp:Label>
+                <label class="count-text"></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="cardChart">
+        <div class="chart-wrapper">
+            <h3>Appointments Chart</h3>
+            <canvas id="randevuChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -16,6 +16,8 @@ public class uc_Patient
     public int PatientID { get; set; }
 
     public int? DietitianID { get; set; }
+    [NotMapped]
+    public string DietitianName { get; set; }
 
     [ForeignKey("DietitianID")]
     public virtual uc_Dietitian Dietitian { get; set; }

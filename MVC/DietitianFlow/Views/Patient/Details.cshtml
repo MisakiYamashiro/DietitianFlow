@@ -1,0 +1,181 @@
+﻿@model uc_Patient
+
+@{ 
+    var allergiesVarMi = true;
+    var diseasesVarMi = true;
+    var UsingMedsVarMi = true;
+    var operationhistory = true;
+    if (Model.Allergies == "Yok")
+    {
+        allergiesVarMi = false;
+    }
+    if (Model.Diseases == "Yok")
+    {
+        diseasesVarMi = false;
+    }
+    if (Model.UsingMeds == "Yok")
+    {
+        UsingMedsVarMi = false;
+    }
+    if (Model.OperationHistory == "Yok")
+    {
+        operationhistory = false;
+    }
+
+
+}
+
+
+@{
+    ViewBag.Title = "Patient Details";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="details-container">
+    <div class="details-card">
+        <div class="details-header">
+            <h2>@Model.Name @Model.Lastname</h2>
+            <span class="patient-id">Patient #@Model.PatientID</span>
+        </div>
+
+        <div class="details-body">
+
+            <div class="detail-row">
+                <span class="label">Birth Date</span>
+                <span class="value">
+                    @if (Model.BirthDate.HasValue)
+                    {
+                        @Model.BirthDate.Value.ToShortDateString()
+                    }
+                    else
+                    {
+                        <span>-</span>
+                    }
+                </span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Age</span>
+                <span class="value">
+                    @{
+                        int? age = null;
+
+                        if (Model.BirthDate.HasValue)
+                        {
+                            age = DateTime.Now.Year - Model.BirthDate.Value.Year;
+                        }
+                    }
+
+                    <span>@(age.HasValue ? age.ToString() : "-")</span>
+                </span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Sex</span>
+                <span class="value">@Model.Sex</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Height</span>
+                <span class="value">@Model.Height cm</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Current Weight</span>
+                <span class="value">@Model.Weight kg</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Target Weight</span>
+                <span class="value">@Model.TargetWeight kg</span>
+            </div>
+
+
+            <div class="detail-row">
+                <span class="label">Blood Group</span>
+                <span class="value">@Model.BloodGroup</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Phone</span>
+                <span class="value">@Model.PhoneNumber</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Email</span>
+                <span class="value">@Model.Email</span>
+            </div>
+
+            <div class="detail-row @(allergiesVarMi ? "notes" : "")">
+                <span class="label">Allergies</span>
+                <p class="value">@Model.Allergies</p>
+            </div>
+
+            <div class="detail-row notes">
+                <span class="label">Address</span>
+                <p class="value">@Model.Address</p>
+            </div>
+
+            <div class="detail-row @(diseasesVarMi ? "notes" : "")">
+                <span class="label">Diseases</span>
+                <p class="value">@Model.Diseases</p>
+            </div>
+
+            <div class="detail-row @(UsingMedsVarMi ? "notes" : "")">
+                <span class="label">Using Meds</span>
+                <p class="value">@Model.UsingMeds</p>
+            </div>
+
+            <div class="detail-row @(operationhistory ? "notes" : "")">
+                <span class="label">Operation History</span>
+                <p class="value">@Model.OperationHistory</p>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Is Smoking</span>
+                <p class="value">@Model.IsSmoking</p>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Physical Activity</span>
+                <p class="value">@Model.PhysicalActivity</p>
+            </div>
+
+            <div class="detail-row notes">
+                <span class="label">Notes</span>
+                <p class="value">@Model.Notes</p>
+            </div>
+
+            <div class="detail-row notes">
+                <span class="label">Description</span>
+                <p class="value">@Model.TargetDescription</p>
+            </div>
+
+            <div class="detail-row notes">
+                <span class="label">Case</span>
+                <p class="value">@Model.Case</p>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Status</span>
+                <span class="value">
+                    @if (Model.Active == true)
+                    {
+                        <span class="status-active">Active</span>
+                    }
+                    else
+                    {
+                        <span class="status-passive">Passive</span>
+                    }
+                </span>
+            </div>
+
+        </div>
+
+        <div class="details-footer">
+            <a href="@Url.Action("Patients", "Patient")" class="btn-back">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>

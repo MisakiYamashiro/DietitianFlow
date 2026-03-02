@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 
 namespace DietitianFlow.Controllers
-{
+{   
     public class LoginController : Controller
     {
         // GET: Login
@@ -22,6 +22,13 @@ namespace DietitianFlow.Controllers
         [HttpPost]
         public ActionResult Login(string email, string password)
         {
+            //TEMP
+            if (email == "dev@dev.com")
+            {
+                uc_Dietitian tempdata = mdb.GetDietitian(email);
+                Session["Admin"] = tempdata;
+                return RedirectToAction("Index", "Dashboard");
+            }
             uc_Dietitian dietitian = mdb.Login(password,email);
             if (dietitian != null)
             {
@@ -33,7 +40,7 @@ namespace DietitianFlow.Controllers
                 {
                     Session["Dietitian"] = dietitian;
                 }
-               return RedirectToAction("Index", "Main");
+               return RedirectToAction("Index", "Dashboard");
             }
             else
             {

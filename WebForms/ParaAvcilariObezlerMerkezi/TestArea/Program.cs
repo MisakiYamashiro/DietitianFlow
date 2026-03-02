@@ -16,7 +16,7 @@ namespace TestArea
             DatabaseAccess.Database database = new Database();
             string haslanmis = database.CreatePWHash(password);
 
-            using (StreamWriter writer = new StreamWriter(@"C:\Users\Misaki\Documents\ornekhash.txt"))
+            using (StreamWriter writer = new StreamWriter(@"C:\Users\misaki\Documents\hash.txt"))
             {
                 writer.WriteLine(haslanmis);
             }

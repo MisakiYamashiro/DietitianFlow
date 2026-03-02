@@ -7,11 +7,19 @@ public class uc_Appointments
 {
     [Key]
     public int AppointmentId { get; set; }
+    [NotMapped]
+    public string DietitianName { get; set; }
+    [NotMapped]
+    public string DietitianLastname { get; set; }
 
     public int? DietitianID { get; set; }
 
     [ForeignKey("DietitianID")]
     public virtual uc_Dietitian Dietitian { get; set; }
+    [NotMapped]
+    public string PatientName { get; set; }
+    [NotMapped]
+    public string PatientLastname { get; set; }
 
     public int? PatientID { get; set; }
 
@@ -28,4 +36,7 @@ public class uc_Appointments
     public string Type { get; set; }
 
     public string Notes { get; set; }
+
+    // Appointments.cshtml --
+
 }

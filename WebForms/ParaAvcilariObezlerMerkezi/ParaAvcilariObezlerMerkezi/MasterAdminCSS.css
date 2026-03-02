@@ -106,7 +106,6 @@ ul {
     gap: 20px;
 }
 
-/* 3. Kart Tasarımı */
 .card {
     width: 300px;
     background-color: white;
@@ -143,21 +142,21 @@ ul {
     font-weight: 500;
 }
 
-.count-text { /* Asp:Label için class */
+.count-text { 
     font-family: 'Poppins', sans-serif;
     font-size: 18pt;
     font-weight: 700;
     color: #333;
 }
 
-/* 4. Grafik Alanı (Sağ Taraf) */
+
 .cardChart {
-    flex: 1; /* Kalan tüm boşluğu kaplar */
+    flex: 1;
     background-color: white;
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    min-width: 400px; /* Çok küçülmesini engellemek için */
+    min-width: 400px; 
     display: flex;
     flex-direction: column;
 }

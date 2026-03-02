@@ -21,8 +21,14 @@
     {
         user = Session["Dietitian"] as uc_Dietitian;
     }
+    
 }
 <!DOCTYPE html>
+@{
+    string section = Request.Url.AbsolutePath
+                 .Split('/')
+                 .LastOrDefault();
+}
 
 <html>
 <head>
@@ -33,6 +39,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="dashboard-container">
@@ -41,16 +48,28 @@
                 <img src="~/Assets/Images/DietitianFlowWhite.png" />
             </div>
             <ul class="unordered-list-top">
-                <li style="background-color: #575757 !important;">
-                    <a href="~/Views/Main/Index.cshtml" class="lbtn-li-dashboard" style="color:white">Dashboard</a>
 
+                <li class="@(section == "Dashboard" ? "active-li" : "")">
+                    <a href="@Url.Action("Index", "Dashboard")"
+                       class="lbtn-li-dashboard @(section == "Dashboard" ? "active-link" : "")">
+                        Dashboard
+                    </a>
                 </li>
-                <li>
-                    <a href="#">Appointments</a>
+
+                <li class="@(section == "Appointment" ? "active-li" : "")">
+                    <a href="@Url.Action("Appointments", "Appointments")"
+                       class="@(section == "Appointment" ? "active-link" : "")">
+                        Appointments
+                    </a>
                 </li>
-                <li>
-                    <a href="#">Patients</a>
+
+                <li class="@(section == "Patient" ? "active-li" : "")">
+                    <a href="@Url.Action("Patients", "Patient")"
+                       class="@(section == "Patient" ? "active-link" : "")">
+                        Patients
+                    </a>
                 </li>
+
             </ul>
 
             <br />

@@ -1,0 +1,70 @@
+﻿@model List<uc_Patient>
+@{
+    ViewBag.Title = "Appointments";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+
+    <div class="card-header-text">
+        <h1>Patients</h1>
+    </div>
+    <div class="card-content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Birth Date</th>
+                    <th>Weight</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Patient", new { id = item.PatientID })">
+                                @item.Name @item.Lastname
+                            </a>
+                        </td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Patient", new { id = item.PatientID })">
+                                @item.BirthDate,
+                            </a>
+                        </td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Patient", new { id = item.PatientID })">
+                                @item.Weight
+                            </a>
+                        </td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Patient", new { id = item.PatientID })">
+                                @item.PhoneNumber
+                            </a>
+                        </td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Patient", new { id = item.PatientID })">
+                                @item.Email
+                            </a>
+                        </td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Patient", new { id = item.PatientID })">
+                                @item.Address
+                            </a>
+                        </td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Patient", new { id = item.PatientID })">
+                                @item.Notes
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

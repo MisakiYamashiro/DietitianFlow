@@ -1,0 +1,39 @@
+﻿var tarihler = @Html.Raw(Model.JsonLabels ?? "[]");
+var sayilar = @Html.Raw(Model.JsonData ?? "[]");
+
+if (tarihler && tarihler.length > 0) {
+    var ctx = document.getElementById('randevuChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line', // Not: 'line' grafiği seçilmiş ama background ayarları bar grafiğe benziyor, sorunsuz çalışacaktır.
+        data: {
+            labels: tarihler,
+            datasets: [{
+                label: 'Aktif Randevular',
+                data: sayilar,
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { stepSize: 1 }
+                }
+            }
+        }
+    });
+} else {
+    // Veri yoksa grafiği gizleyip mesaj gösteriyoruz
+    var chartContainer = document.getElementById('randevuChart').parentElement;
+    if (chartContainer) {
+        chartContainer.innerHTML = "<p style='text-align:center; padding-top:100px; color:#666;'>Henüz randevu verisi yok.</p>";
+    }
+} 

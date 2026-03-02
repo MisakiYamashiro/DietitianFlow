@@ -1,0 +1,114 @@
+﻿@model List<uc_Appointments>
+@{
+    ViewBag.Title = "Appointments";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    
+        <div class="card-header-text">
+            <h1>Appointments</h1>
+        </div>
+        <div class="card-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Appointment ID</th>
+                        <th>Dietitian</th>
+                        <th>Patient</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Status</th>
+                        <th>Type</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                    @item.AppointmentId
+                                </a>
+                            </td>
+                            <td>
+                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                    @item.PatientName
+                                </a>
+                            </td>
+                            <td>
+                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                    @item.StartTime
+                                </a>
+                            </td>
+                            <td>
+                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                    @item.EndTime
+                                </a>
+                            </td>
+                            <td>
+                            @{
+                                DateTime now = DateTime.Now;
+                                DateTime startDt;
+                                DateTime endDt;
+                                string status;
+                                string statusClass = "status-normal";
+
+                                bool hasStart = DateTime.TryParse(Convert.ToString(item.StartTime), out startDt);
+                                bool hasEnd = DateTime.TryParse(Convert.ToString(item.EndTime), out endDt);
+
+                                Func<TimeSpan, string> fmt = ts =>
+                                {
+                                    if (ts.TotalHours >= 1) return $"{(int)ts.TotalHours}h {ts.Minutes}m";
+                                    if (ts.TotalMinutes >= 1) return $"{(int)ts.TotalMinutes}m {ts.Seconds}s";
+                                    return $"{ts.Seconds}s";
+                                };
+
+                                TimeSpan relevantTs = TimeSpan.Zero;
+
+                                if (!hasStart || !hasEnd)
+                                {
+                                    status = "Invalid date";
+                                }
+                                else if (now < startDt)
+                                {
+                                    relevantTs = startDt - now;
+                                    status = $"Starts in {fmt(relevantTs)}";
+                                }
+                                else if (now >= startDt && now <= endDt)
+                                {
+                                    relevantTs = endDt - now;
+                                    status = $"In progress - ends in {fmt(relevantTs)}";
+                                }
+                                else
+                                {
+                                    relevantTs = now - endDt;
+                                    status = $"Ended {fmt(relevantTs)} ago";
+                                }
+
+                                if (relevantTs.TotalHours < 10 && relevantTs > TimeSpan.Zero)
+                                {
+                                    statusClass = "status-long";
+                                }
+                            }
+                            <span class="@statusClass">@status</span>
+                            </td>
+                            <td>
+                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                    @item.Type
+                                </a>
+                            </td>
+                            <td>
+                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                    @item.Notes
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+</div>
+
+

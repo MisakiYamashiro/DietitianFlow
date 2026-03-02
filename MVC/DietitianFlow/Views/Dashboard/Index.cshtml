@@ -1,0 +1,90 @@
+﻿@using DietitianFlow.Models.ViewTempModels
+@model DashboardViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="dashboard-row">
+
+    <div class="stats-column">
+        <div class="card">
+            <img src="Assets/Images/CALENDAR.png" alt="Bekleyen Randevular" />
+            <div class="card-text">
+                <label>Bekleyen Randevular</label>
+                <br />
+                <span class="count-text">@Model.BekleyenRandevuSayisi</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Assets/Images/calendarstar.png" alt="Yaklaşan Randevular" />
+            <div class="card-text">
+                <label>Yaklaşan Randevular</label>
+                <br />
+                <span class="count-text">@Model.YaklasanRandevular</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Assets/Images/patients.png" alt="Aktif Hastalar" />
+            <div class="card-text">
+                <label>Aktif Hastalar</label>
+                <br />
+                <span class="count-text">@Model.AktifHastalar</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cardChart">
+        <div class="chart-wrapper">
+            <h3>Appointments Chart</h3>
+            <canvas id="randevuChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var tarihlerMetin = '@Html.Raw(Model.JsonLabels ?? "[]")';
+    var sayilarMetin = '@Html.Raw(Model.JsonData ?? "[]")';
+
+    var tarihler = JSON.parse(tarihlerMetin);
+    var sayilar = JSON.parse(sayilarMetin);
+
+    if (tarihler && tarihler.length > 0) {
+        var ctx = document.getElementById('randevuChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: tarihler,
+                datasets: [{
+                    label: 'Aktif Randevular',
+                    data: sayilar,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { stepSize: 1 }
+                    }
+                }
+            }
+        });
+    } else {
+        var chartContainer = document.getElementById('randevuChart').parentElement;
+        if (chartContainer) {
+            chartContainer.innerHTML = "<p style='text-align:center; padding-top:100px; color:#666;'>Henüz randevu verisi yok.</p>";
+        }
+    }
+</script>

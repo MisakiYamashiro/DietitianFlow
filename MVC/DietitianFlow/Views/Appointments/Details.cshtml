@@ -1,0 +1,49 @@
+﻿@model uc_Appointments
+
+@{
+    ViewBag.Title = "Appointment Details";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="details-container">
+    <div class="details-card">
+        <div class="details-header">
+            <h2>Appointment #@Model.AppointmentId</h2>
+        </div>
+
+        <div class="details-body">
+
+            <div class="detail-row">
+                <span class="label">Patient</span>
+                <span class="value">@Model.PatientName @Model.PatientLastname</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Start Time</span>
+                <span class="value">@Model.StartTime</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">End Time</span>
+                <span class="value">@Model.EndTime</span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Type</span>
+                <span class="value">@Model.Type</span>
+            </div>
+
+            <div class="detail-row notes">
+                <span class="label">Notes</span>
+                <p class="value">@Model.Notes</p>
+            </div>
+
+        </div>
+
+        <div class="details-footer">
+            <a href="@Url.Action("Appointments", "Appointments")" class="btn-back">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>
