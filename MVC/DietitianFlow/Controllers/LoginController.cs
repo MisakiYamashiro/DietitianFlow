@@ -1,4 +1,4 @@
-﻿using DietitianFlow.Models;
+﻿
 using DietitianFlowManuelMethods;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,6 @@ namespace DietitianFlow.Controllers
     {
         // GET: Login
         ManuelModel mdb = new ManuelModel();
-        Model db = new Model();
         [HttpGet]
         public ActionResult Login()
         {

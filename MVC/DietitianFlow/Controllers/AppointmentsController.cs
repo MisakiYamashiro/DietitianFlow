@@ -19,7 +19,7 @@ namespace DietitianFlow.Controllers
             }
             uc_Dietitian csession = (uc_Dietitian)(Session["Admin"] ?? Session["Dietitian"]);
             List<uc_Appointments> _Appointments = model.GetAppointments(csession.DietitianID);
-
+            
             return View(_Appointments);
         }
         public ActionResult Details(int? id)

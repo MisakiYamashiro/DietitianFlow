@@ -29,27 +29,15 @@ namespace DietitianFlow.Controllers
 
             var model = new ManuelModel();
             var app = model.GetPatient(id.Value);
-
-
+            var bmis = from patient in app
+                       select new
+                       {
+                           starting_bmi = patient.StartingWeight / (patient.Height * 2),
+                           target_bmi = patient.TargetWeight / (patient.Height * 2),
+                           bmi = patient.Weight / (patient.Height * 2)
+                       };
             if (app == null)
                 return HttpNotFound();
-
-            double? starting_bmi = null;
-            double? target_bmi = null;
-            double? bmi = null;
-
-            if (app.Height.HasValue && app.Height.Value > 0)
-            {
-                var meter = app.Height / 100;
-                var heightSquared = meter * meter;
-                if (app.StartingWeight.HasValue) starting_bmi = app.StartingWeight.Value / heightSquared;
-                if (app.TargetWeight.HasValue) target_bmi = app.TargetWeight.Value / heightSquared;
-                if (app.Weight.HasValue) bmi = app.Weight.Value / heightSquared;
-            }
-
-            ViewBag.StartingBMI = starting_bmi;
-            ViewBag.TargetBMI = target_bmi;
-            ViewBag.CurrentBMI = bmi;
 
             return View(app);
         }

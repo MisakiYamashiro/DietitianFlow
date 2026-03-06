@@ -1,4 +1,4 @@
-﻿using DietitianFlow.Models.ViewTempModels;
+﻿
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using DietitianFlowManuelMethods;
+using DietitianFlow.Views.Dashboard;
 
 namespace DietitianFlow.Controllers
 {
@@ -42,13 +43,11 @@ namespace DietitianFlow.Controllers
                 if (appointments != null)
                 {
                     model.BekleyenRandevuSayisi = appointments.Count(x =>
-                        x.Status == true &&
                         x.StartTime.HasValue &&
                         x.StartTime.Value > datenow &&
                         x.DietitianID == activeDietitian.DietitianID);
 
                     model.YaklasanRandevular = appointments.Count(x =>
-                        x.Status == true &&
                         x.StartTime.HasValue &&
                         x.StartTime.Value > datenow &&
                         x.StartTime.Value <= datenow.AddDays(7) &&
@@ -59,7 +58,6 @@ namespace DietitianFlow.Controllers
 
                     var istatistik = appointments
                         .Where(x =>
-                            x.Status == true &&
                             x.StartTime.HasValue &&
                             x.StartTime.Value >= startDate &&
                             x.StartTime.Value <= endDate &&

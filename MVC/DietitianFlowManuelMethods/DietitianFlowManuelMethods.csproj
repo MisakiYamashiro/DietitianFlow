@@ -70,6 +70,7 @@
     <Compile Include="ConnectionStrings.cs" />
     <Compile Include="ManuelModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="uc_PassiveAppointments.cs" />
     <Compile Include="uc_Appointments.cs" />
     <Compile Include="uc_BodyMeasurements.cs" />
     <Compile Include="uc_Dietitian.cs" />

@@ -2,8 +2,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table("Appointments")]
-public class uc_Appointments
+[Table("PassiveAppointments")]
+public class uc_PassiveAppointments
 {
     [Key]
     public int AppointmentId { get; set; }
@@ -35,6 +35,6 @@ public class uc_Appointments
 
     public string Notes { get; set; }
 
-    // Appointments.cshtml --
+    // Appointments.cshtml -- 
 
 }

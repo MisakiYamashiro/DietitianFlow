@@ -18,7 +18,6 @@
                         <th>Patient</th>
                         <th>Start Time</th>
                         <th>End Time</th>
-                        <th>Status</th>
                         <th>Type</th>
                         <th>Notes</th>
                     </tr>
@@ -94,6 +93,7 @@
                             }
                             <span class="@statusClass">@status</span>
                             </td>
+                            
                             <td>
                                 <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
                                     @item.Type
