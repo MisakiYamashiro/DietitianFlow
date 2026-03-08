@@ -1,4 +1,5 @@
-﻿using DietitianFlowManuelMethods;
+﻿using DietitianFlow.Filters;
+using DietitianFlowManuelMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace DietitianFlow.Controllers
 {
+    [AdminAuthentication]
     public class AdminController : Controller
     {
         // GET: Admin

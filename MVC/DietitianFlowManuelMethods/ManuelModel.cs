@@ -185,7 +185,11 @@ namespace DietitianFlowManuelMethods
         public uc_Dietitian Login(string password, string email)
         {
             uc_Dietitian dietitian1 = GetDietitian(email);
-            bool VerifyUser = VerifyHash(password,dietitian1.Password_Hash);
+
+            if (dietitian1 == null)
+                return null;
+
+            bool VerifyUser = VerifyHash(password, dietitian1.Password_Hash);
 
             if (VerifyUser)
             {
@@ -200,7 +204,7 @@ namespace DietitianFlowManuelMethods
                     }
                     SqlDataReader reader = cmd.ExecuteReader();
                     uc_Dietitian dietitian = null;
-                    if (reader.Read())
+                    while (reader.Read())
                     {
                         dietitian = new uc_Dietitian();
                         dietitian.DietitianID = reader.GetInt32(0);
@@ -245,43 +249,86 @@ namespace DietitianFlowManuelMethods
                 using (ManuelModel mm = new ManuelModel())
                 {
                     cmd.Parameters.Clear();
-                    cmd.CommandText = "SELECT A.AppointmentId,D.DietitianId,D.Name AS DietitianName,P.PatientId,P.Name as PatientName,A.StartTime,A.EndTime,A.Type,A.Notes FROM Appointments A JOIN Dietitians D ON A.DietitianId=D.DietitianID JOIN Patients P ON A.PatientId=P.PatientID where D.DietitianID = @id";
+                    cmd.CommandText = @"
+                SELECT 
+                    A.AppointmentId,
+                    D.DietitianID,
+                    D.Name AS DietitianName,
+                    D.Lastname AS DietitianLastname,
+                    P.PatientID,
+                    P.Name AS PatientName,
+                    P.Lastname AS PatientLastname,
+                    A.StartTime,
+                    A.EndTime,
+                    A.Type,
+                    A.Notes
+                FROM Appointments A
+                JOIN Dietitians D ON A.DietitianId = D.DietitianID
+                JOIN Patients P ON A.PatientId = P.PatientID
+                WHERE D.DietitianID = @id";
+
+                    cmd.Parameters.AddWithValue("@id", id);
+
                     if (con.State == System.Data.ConnectionState.Closed)
                     {
                         con.Open();
                     }
-                    cmd.Parameters.AddWithValue("@id", id);
+
                     SqlDataReader reader = cmd.ExecuteReader();
                     var apps = new List<uc_Appointments>();
+
                     while (reader.Read())
                     {
                         var app = new uc_Appointments();
                         app.AppointmentId = reader.GetInt32(0);
                         app.DietitianID = reader.GetInt32(1);
                         app.DietitianName = reader.GetString(2);
-                        app.PatientID = reader.GetInt32(3);
-                        app.PatientName = reader.GetString(4);
-                        app.StartTime = reader.GetDateTime(5);
-                        app.EndTime = reader.GetDateTime(6);
-                  
-                        app.Type = reader.GetString(7);
-                        if (reader.IsDBNull(8))
-                        {
-                            app.Notes = "N/A";
-                        }
-                        else
-                        {
-                            app.Notes = reader.GetString(8);
-                        }
+                        app.DietitianLastname = reader.GetString(3);
+                        app.PatientID = reader.GetInt32(4);
+                        app.PatientName = reader.GetString(5);
+                        app.PatientLastname = reader.GetString(6);
+                        app.StartTime = reader.GetDateTime(7);
+                        app.EndTime = reader.GetDateTime(8);
+                        app.Type = reader.GetString(9);
+                        app.Notes = reader.IsDBNull(10) ? "N/A" : reader.GetString(10);
+
                         apps.Add(app);
                     }
+
                     reader.Close();
                     return apps;
                 }
             }
             catch (Exception exc)
             {
-                throw new ArgumentException(exc + "dying light the beast < dying light 2");
+                throw new ArgumentException(exc + " dying light the beast < dying light 2");
+            }
+        }
+        public bool CreateAppointment(uc_Appointments appointments)
+        {
+            try
+            {
+                using (ManuelModel manuel = new ManuelModel())
+                {
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = "insert into Appointments(DietitianId,PatientId,StartTime,EndTime,Type,Notes) values(@did,@pid,@stime,@etime,@type,@notes)";
+                    cmd.Parameters.AddWithValue("@did", appointments.DietitianID);
+                    cmd.Parameters.AddWithValue("@pid", appointments.PatientID);
+                    cmd.Parameters.AddWithValue("@stime", appointments.StartTime);
+                    cmd.Parameters.AddWithValue("@etime", appointments.EndTime);
+                    cmd.Parameters.AddWithValue("@type", appointments.Type);
+                    cmd.Parameters.AddWithValue("@notes", appointments.Notes);
+                    if (con.State == System.Data.ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new ArgumentException(ex + "blabalbalba");
             }
         }
         public List<uc_Appointments> GetAppointments()
@@ -291,43 +338,59 @@ namespace DietitianFlowManuelMethods
                 using (ManuelModel mm = new ManuelModel())
                 {
                     cmd.Parameters.Clear();
-                    cmd.CommandText = "SELECT AppointmentId,DietitianId,PatientId,StartTime,EndTime,Type,Notes from Appointments";
+                    cmd.CommandText = @"
+                SELECT 
+                    A.AppointmentId,
+                    D.DietitianID,
+                    D.Name AS DietitianName,
+                    D.Lastname AS DietitianLastname,
+                    P.PatientID,
+                    P.Name AS PatientName,
+                    P.Lastname AS PatientLastname,
+                    A.StartTime,
+                    A.EndTime,
+                    A.Type,
+                    A.Notes
+                FROM Appointments A
+                JOIN Dietitians D ON A.DietitianId = D.DietitianID
+                JOIN Patients P ON A.PatientId = P.PatientID";
+
                     if (con.State == System.Data.ConnectionState.Closed)
                     {
                         con.Open();
                     }
+
                     SqlDataReader reader = cmd.ExecuteReader();
                     var apps = new List<uc_Appointments>();
+
                     while (reader.Read())
                     {
                         var app = new uc_Appointments();
                         app.AppointmentId = reader.GetInt32(0);
                         app.DietitianID = reader.GetInt32(1);
-                        app.PatientID = reader.GetInt32(2);
-                        app.StartTime = reader.GetDateTime(3);
-                        app.EndTime = reader.GetDateTime(4);
-                       
-                        app.Type = reader.GetString(5);
-                        
-                        if (reader.IsDBNull(6))
-                        {
-                            app.Notes = "N/A";
-                        }
-                        else
-                        {
-                            app.Notes = reader.GetString(6);
-                        }
+                        app.DietitianName = reader.GetString(2);
+                        app.DietitianLastname = reader.GetString(3);
+                        app.PatientID = reader.GetInt32(4);
+                        app.PatientName = reader.GetString(5);
+                        app.PatientLastname = reader.GetString(6);
+                        app.StartTime = reader.GetDateTime(7);
+                        app.EndTime = reader.GetDateTime(8);
+                        app.Type = reader.GetString(9);
+                        app.Notes = reader.IsDBNull(10) ? "N/A" : reader.GetString(10);
+
                         apps.Add(app);
                     }
+
                     reader.Close();
                     return apps;
                 }
             }
             catch (Exception exc)
             {
-                throw new ArgumentException(exc + "dying light the beast < dying light 2");
+                throw new ArgumentException(exc + " dying light the beast < dying light 2");
             }
         }
+        
 
         public uc_Appointments GetAppointment(int id)
         {
@@ -471,7 +534,7 @@ namespace DietitianFlowManuelMethods
             using (ManuelModel db = new ManuelModel())
             {
                 cmd.Parameters.Clear();
-                cmd.CommandText = "SELECT P.PatientID,P.DietitianID, D.Name as DietitianName, P.Name as PatientName, P.Lastname,P.GovernmentIDNumber,P.BirthDate,P.Sex,P.Height,P.StartingWeight,P.TargetWeight,p.Weight,p.BloodGroup,p.TargetDescription,p.Allergies,p.Diseases,p.UsingMeds,p.OperationHistory,p.IsSmoking,p.PhysicalActivity,P.PhoneNumber,p.Email,p.Address,p.SystemSignDate,p.[Case],p.Notes,p.LastSessionDate,p.Active FROM Patients as P join Dietitians as D on P.DietitianID = D.DietitianID where D.DietitianID = 1";
+                cmd.CommandText = "SELECT P.PatientID,P.DietitianID, D.Name as DietitianName, P.Name as PatientName, P.Lastname,P.GovernmentIDNumber,P.BirthDate,P.Sex,P.Height,P.StartingWeight,P.TargetWeight,p.Weight,p.BloodGroup,p.TargetDescription,p.Allergies,p.Diseases,p.UsingMeds,p.OperationHistory,p.IsSmoking,p.PhysicalActivity,P.PhoneNumber,p.Email,p.Address,p.SystemSignDate,p.[Case],p.Notes,p.LastSessionDate,p.Active FROM Patients as P join Dietitians as D on P.DietitianID = D.DietitianID where D.DietitianID = @id";
                 if (con.State == System.Data.ConnectionState.Closed)
                 {
                     con.Open();
@@ -516,18 +579,7 @@ namespace DietitianFlowManuelMethods
             }
         }
 
-        //public bool StatusControl_Change(List<uc_Appointments>)
-        //{
-        //    try
-        //    {
-        //        var currentTime = DateTime.Now;
-        //        cmd.CommandText = "";
-        //    }  
-        //    catch(Exception exs)
-        //    {
-        //        throw new ArgumentException(exs + "Bizler bulsakta bu soruyu.");
-        //    }
-        //}
+        
         public void Dispose()
         {
 

@@ -53,6 +53,7 @@
 
     if (tarihler && tarihler.length > 0) {
         var ctx = document.getElementById('randevuChart').getContext('2d');
+
         new Chart(ctx, {
             type: 'line',
             data: {
@@ -60,10 +61,13 @@
                 datasets: [{
                     label: 'Aktif Randevular',
                     data: sayilar,
-                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
                     borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
-                    borderRadius: 4
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 4,
+                    pointBackgroundColor: 'rgba(75, 192, 192, 1)'
                 }]
             },
             options: {
@@ -75,7 +79,9 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        ticks: { stepSize: 1 }
+                        ticks: {
+                            stepSize: 1
+                        }
                     }
                 }
             }

@@ -5,48 +5,63 @@
 }
 
 <div class="container">
-    
-        <div class="card-header-text">
+
+
+
+    <div class="card-header-text">
+        @if (Model != null)
+        {
             <h1>Appointments</h1>
-        </div>
-        <div class="card-content">
-            <table>
-                <thead>
+        }
+
+        else
+        {
+            <h1>You have no appointments.</h1>
+        }
+    </div>
+
+
+
+    <div class="card-content">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Dietitian</th>
+                    <th>Patient</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Type</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
                     <tr>
-                        <th>Appointment ID</th>
-                        <th>Dietitian</th>
-                        <th>Patient</th>
-                        <th>Start Time</th>
-                        <th>End Time</th>
-                        <th>Type</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
-                                    @item.AppointmentId
-                                </a>
-                            </td>
-                            <td>
-                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
-                                    @item.PatientName
-                                </a>
-                            </td>
-                            <td>
-                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
-                                    @item.StartTime
-                                </a>
-                            </td>
-                            <td>
-                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
-                                    @item.EndTime
-                                </a>
-                            </td>
-                            <td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                @item.AppointmentId
+                            </a>
+                        </td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                @item.PatientName
+                            </a>
+                        </td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                @item.StartTime
+                            </a>
+                        </td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                @item.EndTime
+                            </a>
+                        </td>
+                        <td>
                             @{
                                 DateTime now = DateTime.Now;
                                 DateTime startDt;
@@ -92,23 +107,23 @@
                                 }
                             }
                             <span class="@statusClass">@status</span>
-                            </td>
-                            
-                            <td>
-                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
-                                    @item.Type
-                                </a>
-                            </td>
-                            <td>
-                                <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
-                                    @item.Notes
-                                </a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                        </td>
+
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                @item.Type
+                            </a>
+                        </td>
+                        <td>
+                            <a class="row-link" href="@Url.Action("Details", "Appointments", new { id = item.AppointmentId })">
+                                @item.Notes
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
 

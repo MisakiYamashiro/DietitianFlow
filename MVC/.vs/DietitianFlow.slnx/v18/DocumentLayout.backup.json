@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B27FA711-2DF2-44ED-A6FA-FA87E2FE26E6}|DietitianFlow\\DietitianFlow.csproj|c:\\users\\misaki\\documents\\github\\dietitianflow\\mvc\\dietitianflow\\views\\patient\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B27FA711-2DF2-44ED-A6FA-FA87E2FE26E6}|DietitianFlow\\DietitianFlow.csproj|solutionrelative:dietitianflow\\views\\patient\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F33EBD59-10D9-4FBA-ACE5-9C16715601CB}|DietitianFlowManuelMethods\\DietitianFlowManuelMethods.csproj|c:\\users\\misaki\\documents\\github\\dietitianflow\\mvc\\dietitianflowmanuelmethods\\manuelmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F33EBD59-10D9-4FBA-ACE5-9C16715601CB}|DietitianFlowManuelMethods\\DietitianFlowManuelMethods.csproj|solutionrelative:dietitianflowmanuelmethods\\manuelmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B27FA711-2DF2-44ED-A6FA-FA87E2FE26E6}|DietitianFlow\\DietitianFlow.csproj|c:\\users\\misaki\\documents\\github\\dietitianflow\\mvc\\dietitianflow\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B27FA711-2DF2-44ED-A6FA-FA87E2FE26E6}|DietitianFlow\\DietitianFlow.csproj|solutionrelative:dietitianflow\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B27FA711-2DF2-44ED-A6FA-FA87E2FE26E6}|DietitianFlow\\DietitianFlow.csproj|c:\\users\\misaki\\documents\\github\\dietitianflow\\mvc\\dietitianflow\\apicontrollers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B27FA711-2DF2-44ED-A6FA-FA87E2FE26E6}|DietitianFlow\\DietitianFlow.csproj|solutionrelative:dietitianflow\\apicontrollers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B27FA711-2DF2-44ED-A6FA-FA87E2FE26E6}|DietitianFlow\\DietitianFlow.csproj|c:\\users\\misaki\\documents\\github\\dietitianflow\\mvc\\dietitianflow\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B27FA711-2DF2-44ED-A6FA-FA87E2FE26E6}|DietitianFlow\\DietitianFlow.csproj|solutionrelative:dietitianflow\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B27FA711-2DF2-44ED-A6FA-FA87E2FE26E6}|DietitianFlow\\DietitianFlow.csproj|c:\\users\\misaki\\documents\\github\\dietitianflow\\mvc\\dietitianflow\\views\\patient\\patients.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B27FA711-2DF2-44ED-A6FA-FA87E2FE26E6}|DietitianFlow\\DietitianFlow.csproj|solutionrelative:dietitianflow\\views\\patient\\patients.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 268,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -51,70 +39,38 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 342,
+          "SelectedChildIndex": 1,
+          "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlow\\Views\\Patient\\Details.cshtml",
-              "RelativeDocumentMoniker": "DietitianFlow\\Views\\Patient\\Details.cshtml",
-              "ToolTip": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlow\\Views\\Patient\\Details.cshtml",
-              "RelativeToolTip": "DietitianFlow\\Views\\Patient\\Details.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAC0AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-05T19:02:02.678Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PatientController.cs",
-              "DocumentMoniker": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlow\\Controllers\\PatientController.cs",
-              "RelativeDocumentMoniker": "DietitianFlow\\Controllers\\PatientController.cs",
-              "ToolTip": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlow\\Controllers\\PatientController.cs",
-              "RelativeToolTip": "DietitianFlow\\Controllers\\PatientController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA6wB4AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T18:14:22.051Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Patients.cshtml",
-              "DocumentMoniker": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlow\\Views\\Patient\\Patients.cshtml",
-              "RelativeDocumentMoniker": "DietitianFlow\\Views\\Patient\\Patients.cshtml",
-              "ToolTip": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlow\\Views\\Patient\\Patients.cshtml",
-              "RelativeToolTip": "DietitianFlow\\Views\\Patient\\Patients.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAEAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-05T18:14:19.619Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlow\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "DietitianFlow\\Views\\Dashboard\\Index.cshtml",
               "ToolTip": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlow\\Views\\Dashboard\\Index.cshtml",
               "RelativeToolTip": "DietitianFlow\\Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAADwvzAAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-05T17:42:52.509Z",
+              "WhenOpened": "2026-03-08T21:11:18.383Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ManuelModel.cs",
-              "DocumentMoniker": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlowManuelMethods\\ManuelModel.cs",
-              "RelativeDocumentMoniker": "DietitianFlowManuelMethods\\ManuelModel.cs",
-              "ToolTip": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlowManuelMethods\\ManuelModel.cs",
-              "RelativeToolTip": "DietitianFlowManuelMethods\\ManuelModel.cs",
-              "ViewState": "AgIAAI0BAAAAAAAAAAAkwKoBAAARAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "AppointmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlow\\ApiControllers\\AppointmentsController.cs",
+              "RelativeDocumentMoniker": "DietitianFlow\\ApiControllers\\AppointmentsController.cs",
+              "ToolTip": "C:\\Users\\misaki\\Documents\\GitHub\\DietitianFlow\\MVC\\DietitianFlow\\ApiControllers\\AppointmentsController.cs",
+              "RelativeToolTip": "DietitianFlow\\ApiControllers\\AppointmentsController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA3wDAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T17:41:29.902Z",
+              "WhenOpened": "2026-03-08T21:28:22.351Z",
               "EditorCaption": ""
             }
           ]

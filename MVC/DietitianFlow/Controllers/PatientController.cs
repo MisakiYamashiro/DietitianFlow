@@ -1,4 +1,7 @@
-﻿using DietitianFlowManuelMethods;
+﻿using DietitianFlow.Filters;
+using DietitianFlow.Helpers;
+using DietitianFlow.Services;
+using DietitianFlowManuelMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +10,19 @@ using System.Web.Mvc;
 
 namespace DietitianFlow.Controllers
 {
+    [AdminAuthentication]
     public class PatientController : Controller
     {
+        private readonly PatientService _patientService;
         // GET: Patient
+        public PatientController()
+        {
+            _patientService = new PatientService();
+        }
         public ActionResult Patients()
         {
-            var model = new ManuelModel();
-            if (Session["Admin"] == null && Session["Dietitian"] == null)
-            {
-                return RedirectToAction("Login", "Login");
-            }
-            uc_Dietitian csession = (uc_Dietitian)(Session["Admin"] ?? Session["Dietitian"]);
-            List<uc_Patient> _Patients = model.GetPatients(csession.DietitianID).Where(x => x.Active == true).ToList();
+            var csession = SessionHelper.GetActiveDietitian(Session);
+            List<uc_Patient> _Patients = _patientService.GetPatients(csession.DietitianID).Where(x => x.Active == true).ToList();
             return PartialView(_Patients);
         }
         
@@ -27,29 +31,16 @@ namespace DietitianFlow.Controllers
             if (id == null)
                 return RedirectToAction("Patients");
 
-            var model = new ManuelModel();
-            var app = model.GetPatient(id.Value);
-
+            var app = _patientService.GetPatient(id.Value);
 
             if (app == null)
                 return HttpNotFound();
 
-            double? starting_bmi = null;
-            double? target_bmi = null;
-            double? bmi = null;
+            var bmis = _patientService.CalculateBMIs(app);
 
-            if (app.Height.HasValue && app.Height.Value > 0)
-            {
-                var meter = app.Height / 100;
-                var heightSquared = meter * meter;
-                if (app.StartingWeight.HasValue) starting_bmi = app.StartingWeight.Value / heightSquared;
-                if (app.TargetWeight.HasValue) target_bmi = app.TargetWeight.Value / heightSquared;
-                if (app.Weight.HasValue) bmi = app.Weight.Value / heightSquared;
-            }
-
-            ViewBag.StartingBMI = starting_bmi;
-            ViewBag.TargetBMI = target_bmi;
-            ViewBag.CurrentBMI = bmi;
+            ViewBag.StartingBMI = bmis.startingBmi;
+            ViewBag.TargetBMI = bmis.targetBmi;
+            ViewBag.CurrentBMI = bmis.bmi;
 
             return View(app);
         }
