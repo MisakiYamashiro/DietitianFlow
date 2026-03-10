@@ -23,6 +23,7 @@ namespace DietitianFlow.Controllers
         }
         public ActionResult Index()
         {
+            
             var activeDietitian = SessionHelper.GetActiveDietitian(Session);
             if (activeDietitian ==null)
             {
